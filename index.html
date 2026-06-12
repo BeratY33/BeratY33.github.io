@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berat Yılmaz — Portfolio</title>
+<meta name="description" content="Berat Yılmaz — AI/ML, bilgisayarlı görü ve edge computing odaklı yazılım geliştirici. Projeler ve iletişim.">
+<meta name="author" content="Berat Yılmaz">
+<meta name="theme-color" content="#0a0a0f">
+<!-- Açık grafik (link paylaşımı önizlemesi) — kendi GitHub Pages adresinle güncelle -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Berat Yılmaz — Portfolio">
+<meta property="og:description" content="AI/ML, bilgisayarlı görü ve edge computing odaklı yazılım geliştirici.">
+<meta property="og:url" content="https://beraty33.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Berat Yılmaz — Portfolio">
+<meta name="twitter:description" content="AI/ML, bilgisayarlı görü ve edge computing odaklı yazılım geliştirici.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%237c6ff7'/%3E%3Ctext%20x='16'%20y='23'%20font-family='monospace'%20font-size='19'%20font-weight='700'%20fill='%23ffffff'%20text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --bg3: #18181f;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.15);
+    --text: #f0f0f5;
+    --text2: #9090a8;
+    --text3: #5a5a72;
+    --accent: #7c6ff7;
+    --accent2: #a89bf5;
+    --accent-glow: rgba(124,111,247,0.15);
+    --green: #3ecf8e;
+    --green-bg: rgba(62,207,142,0.08);
+    --amber: #f59e0b;
+    --amber-bg: rgba(245,158,11,0.08);
+    --mono: 'Space Mono', monospace;
+    --sans: 'Space Grotesk', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent2);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: var(--text2);
+    transition: color 0.2s;
+    letter-spacing: 0.03em;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 2.5rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 .name-accent {
+    color: var(--accent2);
+  }
+
+  .hero-bio {
+    font-size: 1.1rem;
+    color: var(--text2);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .chip {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    color: var(--text2);
+    background: var(--bg3);
+    letter-spacing: 0.04em;
+  }
+
+  .chip.accent {
+    border-color: rgba(124,111,247,0.4);
+    color: var(--accent2);
+    background: var(--accent-glow);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid var(--accent);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent2);
+    border-color: var(--accent2);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text2);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--border-hover);
+    color: var(--text);
+    transform: translateY(-1px);
+  }
+
+  .btn svg {
+    width: 16px; height: 16px;
+    flex-shrink: 0;
+  }
+
+  /* SECTION */
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text3);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+    color: var(--text);
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: border-color 0.25s, transform 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .project-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .project-card:hover::before {
+    opacity: 1;
+  }
+
+  .project-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .project-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-ai {
+    background: var(--accent-glow);
+    color: var(--accent2);
+    border: 1px solid rgba(124,111,247,0.3);
+  }
+
+  .badge-robot {
+    background: var(--green-bg);
+    color: var(--green);
+    border: 1px solid rgba(62,207,142,0.3);
+  }
+
+  .project-desc {
+    color: var(--text2);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .highlight {
+    font-size: 0.88rem;
+    color: var(--text2);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .highlight::before {
+    content: '▸';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .my-role {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    font-size: 0.88rem;
+    color: var(--text2);
+    background: var(--accent-glow);
+    border: 1px solid rgba(124,111,247,0.25);
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .my-role-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    flex-shrink: 0;
+  }
+
+  .tech-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: var(--bg3);
+    color: var(--text3);
+    border: 1px solid var(--border);
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .tech-tag:hover {
+    color: var(--text2);
+    border-color: var(--border-hover);
+  }
+
+  .project-footer {
+    display: flex;
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 13px;
+    color: var(--text2);
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    background: transparent;
+  }
+
+  .project-link:hover {
+    color: var(--text);
+    border-color: var(--border-hover);
+    background: var(--bg3);
+  }
+
+  .project-link svg {
+    width: 14px; height: 14px;
+    flex-shrink: 0;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill-group {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .skill-group-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .skill-item {
+    font-size: 13px;
+    color: var(--text2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .skill-item::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--text3);
+    flex-shrink: 0;
+  }
+
+  /* CONTACT */
+  .contact-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  .contact-box p {
+    color: var(--text2);
+    margin-bottom: 2rem;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* FOOTER */
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 2.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text3);
+    font-size: 12px;
+    font-family: var(--mono);
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--bg3); border-radius: 3px; }
+
+  @media (max-width: 640px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-links { gap: 1.25rem; }
+    .hero, section { padding-left: 1.25rem; padding-right: 1.25rem; }
+    h1 { font-size: 2.5rem; }
+    .project-header { flex-direction: column; align-items: flex-start; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">berat.dev</span>
+  <ul class="nav-links">
+    <li><a href="#projects">Projeler</a></li>
+    <li><a href="#skills">Beceriler</a></li>
+    <li><a href="#contact">İletişim</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Yazılım Geliştirici</div>
+  <h1>Merhaba, ben<br><span class="name-accent">Berat Yılmaz.</span></h1>
+  <p class="hero-bio">
+    AI ve makine öğrenmesi odaklı projeler geliştiriyorum. Doğal dil işleme, bilgisayarlı görü ve edge computing konularında uygulamalar üretmekten keyif alıyorum.
+  </p>
+  <div class="hero-chips">
+    <span class="chip accent">AI / ML</span>
+    <span class="chip accent">Computer Vision</span>
+    <span class="chip accent">NLP</span>
+    <span class="chip">Python</span>
+    <span class="chip">FastAPI</span>
+    <span class="chip">Vue.js</span>
+    <span class="chip">Raspberry Pi</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#projects" class="btn btn-primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      Projeleri Gör
+    </a>
+    <a href="https://github.com/BeratY33" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub
+    </a>
+  </div>
+</div>
+
+<section id="projects">
+  <p class="section-label">// projeler</p>
+  <h2>Yaptıklarım</h2>
+  <div class="projects-grid">
+
+    <!-- Project 1: NovaMind -->
+    <div class="project-card">
+      <div class="project-header">
+        <h3 class="project-title">NovaMind — AI Email Assistant</h3>
+        <span class="project-badge badge-ai">AI · Ekip Projesi</span>
+      </div>
+      <p class="project-desc">
+        Google Gemini AI destekli, gerçek zamanlı sohbet arayüzüyle Gmail'i doğal dil komutlarıyla yönetebilen akıllı bir e-posta asistanı. ML tabanlı e-posta sınıflandırma motoru da içeriyor.
+      </p>
+      <div class="project-highlights">
+        <span class="highlight">Gemini AI ile doğal dil komutları: "Bugünkü önemli mailler neler?"</span>
+        <span class="highlight">TF-IDF + Logistic Regression ile spam tespiti, SentenceTransformer ile önem sınıflandırması</span>
+        <span class="highlight">Gmail OAuth2 entegrasyonu, gerçek zamanlı e-posta yönetimi</span>
+        <span class="highlight">FastAPI backend + Vue 3 frontend, Docker ile containerized dağıtım</span>
+      </div>
+      <div class="my-role">
+        <span class="my-role-label">Rolüm</span>
+        <span>Sohbet (chatbot) arayüzünün geliştirilmesinde çalıştım; servislerin Docker imajlarını hazırlayıp deploy ettim.</span>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">FastAPI</span>
+        <span class="tech-tag">LangChain</span>
+        <span class="tech-tag">Google Gemini</span>
+        <span class="tech-tag">Vue 3</span>
+        <span class="tech-tag">Supabase</span>
+        <span class="tech-tag">scikit-learn</span>
+        <span class="tech-tag">SentenceTransformers</span>
+        <span class="tech-tag">Gmail API</span>
+        <span class="tech-tag">Docker</span>
+      </div>
+      <div class="project-footer">
+        <a href="https://github.com/BeratY33/Novamind_Cloud" target="_blank" rel="noopener noreferrer" class="project-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Project 2: Autonomous Farm Robot -->
+    <div class="project-card">
+      <div class="project-header">
+        <h3 class="project-title">AgroAI — VLM Tabanlı Otonom Yabani Ot Robotu</h3>
+        <span class="project-badge badge-robot">Edge AI · CSE396 Ders Projesi</span>
+      </div>
+      <p class="project-desc">
+        Bitki sıralarında bant hattını takip ederek ilerleyen, her bitkide durup görüntü analizi yapan ve yabani otu lazerle, sağlıklı bitkiyi su pompasıyla tedavi eden otonom robot. Tüm AI çıkarımı cihaz üzerinde, bulut bağlantısı olmadan çalışıyor.
+      </p>
+      <div class="project-highlights">
+        <span class="highlight">5 kanallı IR sensör dizisi ile PID kontrollü hat takibi; Raspberry Pi ↔ Arduino USB seri köprüsü</span>
+        <span class="highlight">YOLOv8 ile bitki tespiti + pan/tilt servo ile lazer hedefleme; MoondreamV2 VLM ile sağlık sınıflandırması</span>
+        <span class="highlight">Pi Camera v2 + Raspberry Pi 4 üzerinde tam offline edge inference pipeline'ı</span>
+        <span class="highlight">Tespit sonucuna göre su pompası (sağlıklı/hastalıklı) veya lazer diyot (yabani ot) aktivasyonu</span>
+      </div>
+      <div class="my-role">
+        <span class="my-role-label">Rolüm</span>
+        <span>Robotun hat takibi ve navigasyon (pathing) tarafında çalıştım.</span>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">C++ (Arduino)</span>
+        <span class="tech-tag">YOLOv8</span>
+        <span class="tech-tag">MoondreamV2</span>
+        <span class="tech-tag">Raspberry Pi 4</span>
+        <span class="tech-tag">Arduino Uno</span>
+        <span class="tech-tag">Pi Camera v2</span>
+        <span class="tech-tag">OpenCV</span>
+        <span class="tech-tag">Edge AI</span>
+        <span class="tech-tag">Serial Bridge</span>
+      </div>
+      <div class="project-footer">
+        <a href="https://github.com/AgroAI-Systems/agroai-vlm-based-autonomous-robot" target="_blank" rel="noopener noreferrer" class="project-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <p class="section-label">// beceriler</p>
+  <h2>Teknolojiler</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <p class="skill-group-title">Diller</p>
+      <div class="skill-list">
+        <span class="skill-item">Python</span>
+        <span class="skill-item">JavaScript</span>
+        <span class="skill-item">C++ (Arduino)</span>
+        <span class="skill-item">Shell / Bash</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">AI / ML</p>
+      <div class="skill-list">
+        <span class="skill-item">LangChain</span>
+        <span class="skill-item">YOLOv8</span>
+        <span class="skill-item">scikit-learn</span>
+        <span class="skill-item">SentenceTransformers</span>
+        <span class="skill-item">Vision-Language Models</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">Backend</p>
+      <div class="skill-list">
+        <span class="skill-item">FastAPI</span>
+        <span class="skill-item">Supabase</span>
+        <span class="skill-item">REST API</span>
+        <span class="skill-item">OAuth2</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">Frontend</p>
+      <div class="skill-list">
+        <span class="skill-item">Vue 3 / Vite</span>
+        <span class="skill-item">Pinia</span>
+        <span class="skill-item">HTML / CSS</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">DevOps / Donanım</p>
+      <div class="skill-list">
+        <span class="skill-item">Docker</span>
+        <span class="skill-item">GitHub Actions</span>
+        <span class="skill-item">Raspberry Pi 4</span>
+        <span class="skill-item">Edge Computing</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">Araçlar</p>
+      <div class="skill-list">
+        <span class="skill-item">Git / GitHub</span>
+        <span class="skill-item">OpenCV</span>
+        <span class="skill-item">Google APIs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <p class="section-label">// iletişim</p>
+  <h2>Konuşalım</h2>
+  <div class="contact-box">
+    <p>Staj fırsatları veya projeler hakkında konuşmak için her zaman ulaşabilirsiniz.</p>
+    <div class="contact-links">
+      <a href="mailto:beratylz711@gmail.com" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        beratylz711@gmail.com
+      </a>
+      <a href="https://github.com/BeratY33" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Berat Yılmaz</span>
+  <span>beratylz711@gmail.com</span>
+</footer>
+
+</body>
+</html>
